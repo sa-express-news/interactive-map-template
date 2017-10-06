@@ -1,2 +1,4 @@
-// list all your actions here as constants
-// eg: export const GET_STORIES = 'GET_STORIES';
+// map actions
+
+export const GET_ALL_MARKERS = 'GET_ALL_MARKERS';
+export const GET_PAGE = 'GET_PAGE';

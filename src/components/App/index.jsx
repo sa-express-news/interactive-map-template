@@ -2,13 +2,15 @@
 
 import React, { Component } from 'react';
 
-import './App.css';
+import Map from '../Map';
 
-class App extends Component {
+import './App.scss';
+
+class App extends Component<null> {
   render() {
     return (
       <div className='App'>
-      
+      	<Map />
       </div>
     );
   }

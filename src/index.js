@@ -1,28 +1,21 @@
-// *** REACT W/O REDUX ***
-
-import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
+
+// components
 import App from './components/App';
+
+import 'font-awesome/css/font-awesome.min.css';
 import './index.css';
 
-import '../node_modules/grommet/scss/vanilla/index.scss';
+// import injectTapEventPlugin from 'react-tap-event-plugin';
+// injectTapEventPlugin();
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// *** REACT W/ REDUX ***
-
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
-// import store from './store';
-// import App from './components/App/App';
-// import './index.css';
-
-// import '../node_modules/grommet/scss/vanilla/index.scss';
-
-
-// ReactDOM.render(
-//   <Provider store={store}><App /></Provider>,
-//   document.getElementById('root')
-// );
+// Provider is a top-level component that wrapps our entire application.
+// We pass it a reference to the store so we can use react-redux's
+// connect() method for Component Containers.
+ReactDOM.render(
+  <Provider store={store}><App /></Provider>,
+  document.getElementById('root')
+);

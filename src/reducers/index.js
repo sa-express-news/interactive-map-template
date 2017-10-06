@@ -1,15 +1,13 @@
-// write or import and combine your reducers here for export
-// eg:
-/*
- * import { combineReducers } from 'redux';
- *
- * // Reducers
- * import stories from './story-reducer';
- * import photos from './photo-reducer';
- *
- * // Combine Reducers
- * export default combineReducers({
- *   stories,
- *   photos,
- * });
- */
+import { combineReducers } from 'redux';
+
+// Reducers
+import markers from './map-reducer';
+import page from './page-reducer';
+
+// Combine Reducers
+const reducers = combineReducers({
+    markers,
+    page,
+});
+
+export default reducers;
