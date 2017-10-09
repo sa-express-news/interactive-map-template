@@ -11,17 +11,16 @@ import actions from '../../actions';
 // components
 import MapUI from '../MapUI';
 
-import 'leaflet/dist/leaflet.css';
 import './Map.scss';
 
-type Marker = {
+export type MarkerProps = {
 	id: number,
 	img: string,
 	coords: string,
 	type: string,
 };
 
-type Page = {
+export type Page = {
 	id: number,
 	media: string,
 	title: string,
@@ -30,7 +29,7 @@ type Page = {
 };
 
 type Props = {
-	markers: Array<Marker>,
+	markers: Array<MarkerProps>,
 	page: Page,
 };
 
@@ -38,7 +37,8 @@ type State = {
 	pageId: number,
 	map: ?Object,
 	tileLayer: ?Object,
-	contentBoxIsOpen: boolean,
+	modalIsOpen: boolean,
+	panToMarker: boolean,
 };
 
 class Map extends Component<Props, State> {
@@ -50,9 +50,17 @@ class Map extends Component<Props, State> {
 			pageId: 0,
 			map: null,
 			tileLayer: null,
-			contentBoxIsOpen: false,
+			modalIsOpen: false,
+			panToMarker: false,
 		}
+		this.getNextPage 	= this.getNextPage.bind(this);
+		this.openModal		= this.openModal.bind(this);
+		this.closeModal		= this.closeModal.bind(this);
 	}
+
+	/*****************
+	 * Build the map
+	 *****************/
 
 	componentDidMount() {
 		this.getData();
@@ -70,7 +78,7 @@ class Map extends Component<Props, State> {
 		};
 		const params = {
 			center: [29.417,-98.459],
-			zoom: 10,
+			zoom: 12,
 			maxZoom: 13,
 			minZoom: 3,
 			legends: true,
@@ -89,17 +97,54 @@ class Map extends Component<Props, State> {
 		this.setState({ map, tileLayer });
 	}
 
-	toggleContentBox(val: boolean) {
-    	this.setState({ contentBoxIsOpen: val });
+	/*************************
+	 * Pan to current marker
+	 *************************/
+
+	componentWillUpdate(nextProps, nextState) {
+		if (nextState.panToMarker) {
+			this.panToMarker(nextState);
+		}
 	}
 
-	showContentBox() {
-		this.toggleContentBox(true);
+	panToMarker(nextState) {
+		const { map, pageId } 	= nextState;
+		const { markers }		= this.props;
+		const marker 			= _.find(markers, ['id', pageId]);
+		const coords			= marker.coords.split(','); 
+		const zoom 				= map.getZoom();
+		map.setView(coords, zoom < 11 )
 	}
 
-	hideContentBox() {
-		this.toggleContentBox(false);
+	/****************************************
+	 * Handle modal iteration and visibility
+	 ****************************************/
+
+	iteratePages() {
+		const last = this.props.page.len - 1;
+		return this.state.pageId === last ? 0 : this.state.pageId + 1;
 	}
+
+	getNextPage(requested: ?number) {
+		const pageId = typeof requested === 'number' ? requested : this.iteratePages();
+		store.dispatch(actions.page.getPage(pageId));
+		this.setState({ 
+			pageId,
+			panToMarker: true,
+    	});
+	}
+
+	openModal() {
+		this.setState({ modalIsOpen: true });
+	}
+
+	closeModal() {
+		this.setState({ modalIsOpen: false });
+	}
+
+	/**************
+	 * Render time!
+	 **************/
 
 	render() {
 		return (
@@ -109,8 +154,10 @@ class Map extends Component<Props, State> {
 		          map={this.state.map}
 		          markers={this.props.markers}
 		          page={this.props.page}
-		          showContentBox={this.showContentBox}
-		          hideContentBox={this.hideContentBox}
+		          getNextPage={this.getNextPage}
+		          openModal={this.openModal}
+		          closeModal={this.closeModal}
+		          modalIsOpen={this.state.modalIsOpen}
 		        />
 			</div>
 		);

@@ -4,19 +4,42 @@ import React from 'react';
 import _ from 'lodash';
 
 // types
-import type { Marker } from '../Map';
+import type { MarkerProps } from '../Map';
 import type { Page } from '../Map';
+
+// components
+import Marker from '../Marker';
+import Modal from '../Modal';
 
 type Props = {
     map: ?Object,
-    marker: Marker,
+    markers: Array<MarkerProps>,
     page: Page,
-    showContentBox: Function,
-    hideContentBox: Function,
+    openModal: Function,
+    closeModal: Function,
 };
 
 export default (props: Props) => props.map ? (
     <div>
-        SLASHER PUSS
+        {props.markers.map((marker: MarkerProps, key: number) => (
+        	<Marker
+        		key={key}
+        		isPulsing={!key}
+				img={marker.img}
+				coords={marker.coords}
+				type={marker.type}
+				pageId={marker.id}
+				map={props.map}
+				openModal={props.openModal}
+				getNextPage={props.getNextPage}
+        	/>
+        ))}
+        <Modal
+        	isOpen={props.modalIsOpen}
+        	open={props.openModal}
+        	close={props.closeModal}
+        	content={props.page}
+        	getNextPage={props.getNextPage}
+        />
     </div>
 ) : null;

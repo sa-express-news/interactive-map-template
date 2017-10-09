@@ -7,6 +7,7 @@ import store from './store';
 import App from './components/App';
 
 import 'font-awesome/css/font-awesome.min.css';
+import 'leaflet/dist/leaflet.css';
 import './index.css';
 
 // import injectTapEventPlugin from 'react-tap-event-plugin';

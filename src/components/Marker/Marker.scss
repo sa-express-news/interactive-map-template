@@ -1,0 +1,47 @@
+.marker-icon {
+	border: 2px solid rgba(254,204,92,1);
+  box-shadow: 3px 3px 10px #888;
+
+  div {
+  	width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  svg {
+  	position: absolute;
+    top: -7px;
+    right: -11px;
+    color: #555;
+    background-color: #E5F4FE;
+    border-radius: 8px;
+    height: 12px;
+    width: 12px;
+    line-height: 12px;
+    text-align: center;
+    padding: 3px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+  }
+
+  .pulsing { 
+    border: 4px solid rgba(131,3,3, 0.7);
+    border-radius: 8px;
+    height: 50px;
+    width: 50px;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    position: absolute;
+    top: -8px;
+    left: -8px;
+
+    &.hidden { display: none; }
+  }
+  
+  @-webkit-keyframes pulsate {
+        0% {-webkit-transform: scale(0.65, 0.65); opacity: 0.0;}
+        50% {opacity: 1.0;}
+        100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+  }
+}
