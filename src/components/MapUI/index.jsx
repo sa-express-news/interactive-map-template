@@ -10,6 +10,7 @@ import type { Page } from '../Map';
 // components
 import Marker from '../Marker';
 import Modal from '../Modal';
+import Instructions from '../Instructions';
 
 type Props = {
     map: ?Object,
@@ -40,6 +41,10 @@ export default (props: Props) => props.map ? (
         	close={props.closeModal}
         	content={props.page}
         	getNextPage={props.getNextPage}
+            isMobile={props.isMobile}
+        />
+        <Instructions
+            open={props.instructionsAreOpen}
         />
     </div>
 ) : null;

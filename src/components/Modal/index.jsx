@@ -8,21 +8,37 @@ import CustomDialog from './CustomDialog';
 
 const buildYouTubeUrl = media => `//www.youtube.com/embed/${media}?wmode=opaque`;
 
+const isMobile = window.innerWidth < 768;
+
 export default (props: Props) => (
 	<CustomDialog
 		open={props.isOpen}
 		onRequestClose={props.close}
 		className="content-box"
 	>
-		<Card className="card" style={{ marginBottom: 20 }}>
-			<CardHeader
-				title={props.content.title}
-				titleStyle={{
-					fontSize: '1.3em',
-					paddingTop: '10px',
-				}}
-				avatar="http://ww3.hdnux.com/photos/34/27/72/7437958/4/35x35.png"
-			/>
+		<Card className="card">
+			 <CardActions>
+				<FlatButton 
+					primary 
+					label="Back to map"
+					onClick={props.close}
+				/>
+				<FlatButton 
+					label="Next exhibit"
+					style={{ float: 'right' }}
+					onClick={props.getNextPage}
+				/>
+			</CardActions>
+			{!props.isMobile() && (
+				<CardHeader
+					title={props.content.title}
+					titleStyle={{
+						fontSize: '1.3em',
+						paddingTop: '10px',
+					}}
+					avatar="http://ww3.hdnux.com/photos/34/27/72/7437958/4/35x35.png"
+				/>
+			)}
 			<CardMedia style={{ textAlign: "center" }}>
 		    	{props.content.type === 'video' && (
 		    		<iframe 
@@ -43,18 +59,6 @@ export default (props: Props) => (
 		    	)}
 		    </CardMedia>
 		    <CardText>{props.content.copy}</CardText>
-		    <CardActions>
-				<FlatButton 
-					primary 
-					label="Back to map"
-					onClick={props.close}
-				/>
-				<FlatButton 
-					label="Next exhibit"
-					style={{ float: 'right' }}
-					onClick={props.getNextPage}
-				/>
-			</CardActions>
 		</Card>
 	</CustomDialog>
 );

@@ -13,11 +13,11 @@ const styles = {
   },
   dialogContent: {
     position: "relative",
-    width: "80vw",
+    width: "90vw",
     transform: "",
   },
   dialogBody: {
-    paddingBottom: 0
+    padding: 14
   }
 };
 

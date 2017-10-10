@@ -52,10 +52,12 @@ class Map extends Component<Props, State> {
 			tileLayer: null,
 			modalIsOpen: false,
 			panToMarker: false,
+			instructionsAreOpen: true,
 		}
-		this.getNextPage 	= this.getNextPage.bind(this);
-		this.openModal		= this.openModal.bind(this);
-		this.closeModal		= this.closeModal.bind(this);
+		this.getNextPage 		= this.getNextPage.bind(this);
+		this.openModal			= this.openModal.bind(this);
+		this.closeModal			= this.closeModal.bind(this);
+		this.hideInstructions	= this.hideInstructions.bind(this);
 	}
 
 	/*****************
@@ -72,15 +74,19 @@ class Map extends Component<Props, State> {
 	    store.dispatch(actions.page.getPage(this.state.pageId));
 	}
 
+	isMobile() {
+		return window.innerWidth < 768;
+	}
+
 	getLeafletConfigObj() {
 		const tileLayer = {
 			uri: 'https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2Flbi1lZGl0b3JzIiwiYSI6ImNpeXVreTZ6YjAwenYycW15d3hoNmp1aTEifQ.OjH869qC5JzcGVVy-rg4JQ',
 		};
 		const params = {
-			center: [29.417,-98.459],
-			zoom: 12,
-			maxZoom: 13,
-			minZoom: 3,
+			center: this.isMobile() ? [29.428, -98.470] : [29.422, -98.481],
+			zoom: this.isMobile() ? 12 : 13,
+			maxZoom: 18,
+			minZoom: 8,
 			legends: true,
 		};
 		return {
@@ -112,8 +118,7 @@ class Map extends Component<Props, State> {
 		const { markers }		= this.props;
 		const marker 			= _.find(markers, ['id', pageId]);
 		const coords			= marker.coords.split(','); 
-		const zoom 				= map.getZoom();
-		map.setView(coords, zoom < 11 )
+		map.setView(coords, 15);
 	}
 
 	/****************************************
@@ -135,11 +140,22 @@ class Map extends Component<Props, State> {
 	}
 
 	openModal() {
-		this.setState({ modalIsOpen: true });
+		this.setState({ 
+			modalIsOpen: true,
+			instructionsAreOpen: false,
+		});
 	}
 
 	closeModal() {
 		this.setState({ modalIsOpen: false });
+	}
+
+	/***********************
+	 * Manage instructions
+	 ***********************/
+
+	hideInstructions() {
+		this.setState({ instructionsAreOpen: false })
 	}
 
 	/**************
@@ -158,6 +174,9 @@ class Map extends Component<Props, State> {
 		          openModal={this.openModal}
 		          closeModal={this.closeModal}
 		          modalIsOpen={this.state.modalIsOpen}
+		          isMobile={this.isMobile}
+		          instructionsAreOpen={this.state.instructionsAreOpen}
+		          onClick={this.hideInstructions}
 		        />
 			</div>
 		);
