@@ -1,14 +1,67 @@
 // @flow
 
-import React, { Component } from 'react';
+import React from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
 import CustomDialog from './CustomDialog';
 
+import './Modal.scss';
+
 const buildYouTubeUrl = media => `//www.youtube.com/embed/${media}?wmode=opaque`;
 
-const isMobile = window.innerWidth < 768;
+const getButtons = (close: Function, getNextPage: Function, isMobile: Function) => (
+	<CardActions>
+		<FlatButton 
+			primary 
+			label="Back to map"
+			labelStyle={{ 
+				paddingLeft: isMobile() ? 8 : 16,
+				paddingRight: isMobile() ? 8 : 16,
+			}}
+			onClick={close}
+		/>
+		<FlatButton 
+			label="Next mural"
+			labelStyle={{ 
+				paddingLeft: isMobile() ? 8 : 16,
+				paddingRight: isMobile() ? 8 : 16,
+			}}
+			style={{ float: 'right' }}
+			onClick={getNextPage}
+		/>
+	</CardActions>
+);
+
+const getHeader = (title: string) => (
+	<CardHeader
+		title={title}
+		titleStyle={{
+			fontSize: '1.3em',
+			paddingTop: '10px',
+		}}
+		avatar="http://ww3.hdnux.com/photos/34/27/72/7437958/4/35x35.png"
+	/>
+);
+
+const getVideo = (media: string) => (
+	<iframe 
+		src={buildYouTubeUrl(media)}
+		width="533"
+		height="300"
+		frameBorder="0"
+		allowFullScreen
+	/>
+);
+
+const getPhoto = (media: string, title: string) => (
+	<img 
+		src={media}
+		className="media-img"
+		alt={title}
+		style={{ width: "auto", height: "auto", minWidth: "none" }}
+	/>
+);
 
 export default (props: Props) => (
 	<CustomDialog
@@ -17,48 +70,14 @@ export default (props: Props) => (
 		className="content-box"
 	>
 		<Card className="card">
-			 <CardActions>
-				<FlatButton 
-					primary 
-					label="Back to map"
-					onClick={props.close}
-				/>
-				<FlatButton 
-					label="Next exhibit"
-					style={{ float: 'right' }}
-					onClick={props.getNextPage}
-				/>
-			</CardActions>
-			{!props.isMobile() && (
-				<CardHeader
-					title={props.content.title}
-					titleStyle={{
-						fontSize: '1.3em',
-						paddingTop: '10px',
-					}}
-					avatar="http://ww3.hdnux.com/photos/34/27/72/7437958/4/35x35.png"
-				/>
-			)}
+			{props.isMobile() && getButtons(props.close, props.getNextPage, props.isMobile)}
+			{!props.isMobile() && getHeader(props.content.title)}
 			<CardMedia style={{ textAlign: "center" }}>
-		    	{props.content.type === 'video' && (
-		    		<iframe 
-		    			src={buildYouTubeUrl(props.content.media)}
-		    			width="533"
-		    			height="300"
-		    			frameBorder="0"
-		    			allowFullScreen
-		    		/>
-		    	)}
-		    	{props.content.type === 'photo' && (
-		    		<img 
-		    			src={props.content.media}
-		    			className="media-img"
-		    			alt={props.content.title}
-		    			style={{ width: "auto", height: "auto", minWidth: "none" }}
-		    		/>
-		    	)}
+		    	{props.content.type === 'video' && getVideo(props.content.media)}
+		    	{props.content.type === 'photo' && getPhoto(props.content.media, props.content.title)}
 		    </CardMedia>
 		    <CardText>{props.content.copy}</CardText>
+		    {!props.isMobile() && getButtons(props.close, props.getNextPage, props.isMobile)}
 		</Card>
 	</CustomDialog>
 );

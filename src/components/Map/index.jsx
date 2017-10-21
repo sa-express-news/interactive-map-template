@@ -80,11 +80,11 @@ class Map extends Component<Props, State> {
 
 	getLeafletConfigObj() {
 		const tileLayer = {
-			uri: 'https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2Flbi1lZGl0b3JzIiwiYSI6ImNpeXVreTZ6YjAwenYycW15d3hoNmp1aTEifQ.OjH869qC5JzcGVVy-rg4JQ',
+			uri: 'https://api.mapbox.com/styles/v1/saen-editors/cj8lz9cbp6d0i2ro29ef2422q/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2Flbi1lZGl0b3JzIiwiYSI6ImNpeXVreTZ6YjAwenYycW15d3hoNmp1aTEifQ.OjH869qC5JzcGVVy-rg4JQ',
 		};
 		const params = {
 			center: this.isMobile() ? [29.428, -98.470] : [29.422, -98.481],
-			zoom: this.isMobile() ? 12 : 13,
+			zoom: 12,
 			maxZoom: 18,
 			minZoom: 8,
 			legends: true,

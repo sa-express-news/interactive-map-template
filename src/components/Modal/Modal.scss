@@ -1,14 +1,6 @@
 .content-box {
 	.card {
-		video {
-			max-height: 300px;
-		}
-
-		img.media-img {
-			max-height: 300px;
-			max-width: 100%;
-			width: auto;
-			height: auto;
-		}
+		-webkit-overflow-scrolling: touch;
+		overflow-y: scroll;
 	}
 }

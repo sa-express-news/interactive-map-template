@@ -1,0 +1,20 @@
+.Social {
+	float: left;
+
+	svg {
+		padding: 14px 4px 0;
+		width: 20px;
+		height: 20px;
+
+		@media screen and (min-width: 768px) {
+			padding: 10px 10px 0;
+			width: 30px;
+			height: 30px;
+		}
+
+		g {
+			fill: white;
+			fill-opacity: 0.6;
+		}
+	}
+}
