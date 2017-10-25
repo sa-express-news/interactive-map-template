@@ -14,7 +14,7 @@ class App extends Component<null> {
 			<div className='App'>
 				<MuiThemeProvider>
 					<div>
-						<Nav className="Nav" title="Explore San Antonio's murals" />
+						<Nav className="Nav" title="Explore the new Botanical Gardens" />
 						<Map />
 					</div>
 				</MuiThemeProvider>

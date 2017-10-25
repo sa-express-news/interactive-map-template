@@ -53,6 +53,7 @@ class Map extends Component<Props, State> {
 			modalIsOpen: false,
 			panToMarker: false,
 			instructionsAreOpen: true,
+			pulsingMarkerIndex: 6,
 		}
 		this.getNextPage 		= this.getNextPage.bind(this);
 		this.openModal			= this.openModal.bind(this);
@@ -80,13 +81,13 @@ class Map extends Component<Props, State> {
 
 	getLeafletConfigObj() {
 		const tileLayer = {
-			uri: 'https://api.mapbox.com/styles/v1/saen-editors/cj8lz9cbp6d0i2ro29ef2422q/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2Flbi1lZGl0b3JzIiwiYSI6ImNpeXVreTZ6YjAwenYycW15d3hoNmp1aTEifQ.OjH869qC5JzcGVVy-rg4JQ',
+			uri: 'https://api.mapbox.com/styles/v1/saen-editors/cj94ex08h58c92rpc09s721r6/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2Flbi1lZGl0b3JzIiwiYSI6ImNpeXVreTZ6YjAwenYycW15d3hoNmp1aTEifQ.OjH869qC5JzcGVVy-rg4JQ',
 		};
 		const params = {
-			center: this.isMobile() ? [29.428, -98.470] : [29.422, -98.481],
-			zoom: 12,
-			maxZoom: 18,
-			minZoom: 8,
+			center: this.isMobile() ? [38.367502, -112.796631] : [39.631077, -111.994629],
+			zoom: 6,
+			maxZoom: 9,
+			minZoom: 4,
 			legends: true,
 		};
 		return {
@@ -100,7 +101,16 @@ class Map extends Component<Props, State> {
 		const config 	= this.getLeafletConfigObj()
 		const map 		= L.map(id, config.params);
 		const tileLayer = L.tileLayer(config.tileLayer.uri).addTo(map);
+		// for dev mode
+		//this.setTestEvents(map);
+
 		this.setState({ map, tileLayer });
+	}
+
+	setTestEvents(map) {	
+		map.on('zoomend', e => console.log(e.target.getZoom()));
+		map.on('moveend', e => console.log(e.target.getCenter()));
+		map.on('click', e => console.log(e.latlng.lat + ", " + e.latlng.lng));
 	}
 
 	/*************************
@@ -118,7 +128,7 @@ class Map extends Component<Props, State> {
 		const { markers }		= this.props;
 		const marker 			= _.find(markers, ['id', pageId]);
 		const coords			= marker.coords.split(','); 
-		map.setView(coords, 15);
+		map.setView(coords, 8);
 	}
 
 	/****************************************
@@ -177,6 +187,7 @@ class Map extends Component<Props, State> {
 		          isMobile={this.isMobile}
 		          instructionsAreOpen={this.state.instructionsAreOpen}
 		          onClick={this.hideInstructions}
+		          pulsingMarkerIndex={this.state.pulsingMarkerIndex}
 		        />
 			</div>
 		);

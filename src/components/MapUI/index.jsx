@@ -25,7 +25,7 @@ export default (props: Props) => props.map ? (
         {props.markers.map((marker: MarkerProps, key: number) => (
         	<Marker
         		key={key}
-        		isPulsing={!key}
+        		isPulsing={key === props.pulsingMarkerIndex}
 				img={marker.img}
 				coords={marker.coords}
 				type={marker.type}

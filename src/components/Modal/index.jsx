@@ -5,10 +5,9 @@ import {Card, CardActions, CardHeader, CardMedia, CardText} from 'material-ui/Ca
 import FlatButton from 'material-ui/FlatButton';
 
 import CustomDialog from './CustomDialog';
+import ThreeSixty 	from '../ThreeSixty/ThreeSixty';
 
 import './Modal.scss';
-
-const buildYouTubeUrl = media => `//www.youtube.com/embed/${media}?wmode=opaque`;
 
 const getButtons = (close: Function, getNextPage: Function, isMobile: Function) => (
 	<CardActions>
@@ -22,7 +21,7 @@ const getButtons = (close: Function, getNextPage: Function, isMobile: Function) 
 			onClick={close}
 		/>
 		<FlatButton 
-			label="Next mural"
+			label="Next image"
 			labelStyle={{ 
 				paddingLeft: isMobile() ? 8 : 16,
 				paddingRight: isMobile() ? 8 : 16,
@@ -40,13 +39,13 @@ const getHeader = (title: string) => (
 			fontSize: '1.3em',
 			paddingTop: '10px',
 		}}
-		avatar="http://ww3.hdnux.com/photos/34/27/72/7437958/4/35x35.png"
+		avatar="//ww3.hdnux.com/photos/34/27/72/7437958/4/35x35.png"
 	/>
 );
 
 const getVideo = (media: string) => (
 	<iframe 
-		src={buildYouTubeUrl(media)}
+		src={media}
 		width="533"
 		height="300"
 		frameBorder="0"
@@ -63,6 +62,8 @@ const getPhoto = (media: string, title: string) => (
 	/>
 );
 
+const getPano = content => <ThreeSixty content={content} />;
+
 export default (props: Props) => (
 	<CustomDialog
 		open={props.isOpen}
@@ -74,6 +75,7 @@ export default (props: Props) => (
 			{!props.isMobile() && getHeader(props.content.title)}
 			<CardMedia style={{ textAlign: "center" }}>
 		    	{props.content.type === 'video' && getVideo(props.content.media)}
+		    	{props.content.type === 'pano' && getPano(props.content)}
 		    	{props.content.type === 'photo' && getPhoto(props.content.media, props.content.title)}
 		    </CardMedia>
 		    <CardText>{props.content.copy}</CardText>

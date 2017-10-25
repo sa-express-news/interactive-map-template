@@ -1,56 +1,80 @@
 [
     {
         "id": 0,
-        "img": "i12x6rj6Bbw",
-        "coords": "29.427722405027851, -98.478494989603774",
-        "type": "video"
+        "img": "http://ww1.hdnux.com/photos/66/76/25/14411076/3/rawImage.jpg",
+        "coords": "35.94688294914557, -111.45629882812501",
+        "type": "photo"
     },
     {
         "id": 1,
-        "img": "as5YiunLSRA",
-        "coords": "29.41334093117802, -98.42121864122484",
-        "type": "video"
+        "img": "http://ww1.hdnux.com/photos/66/76/25/14411080/3/rawImage.jpg",
+        "coords": "36.3328281042601, -113.63159179687501",
+        "type": "photo"
     },
     {
         "id": 2,
-        "img": "Nyf3O2tXC3M",
-        "coords": "29.450839159064689, -98.474629240797555",
-        "type": "video"
+        "img": "http://ww4.hdnux.com/photos/66/76/25/14411087/3/rawImage.jpg",
+        "coords": "36.743286071170964, -113.01086425781251",
+        "type": "photo"
     },
     {
         "id": 3,
-        "img": "UCwayvqWlwg",
-        "coords": "29.437946246849599, -98.484454400957674",
-        "type": "video"
+        "img": "http://ww4.hdnux.com/photos/66/76/25/14411075/3/rawImage.jpg",
+        "coords": "36.21768713915642, -113.04382324218751",
+        "type": "photo"
     },
     {
         "id": 4,
-        "img": "u3WBu3lCC8k",
-        "coords": "29.441534997127668, -98.502342616274703",
-        "type": "video"
+        "img": "http://ww1.hdnux.com/photos/66/76/25/14411088/3/rawImage.jpg",
+        "coords": "35.2052333646365, -115.37841796875001",
+        "type": "photo"
     },
     {
         "id": 5,
-        "img": "M-XQIDErrSg",
-        "coords": "29.377201027772522, -98.499935531443583",
-        "type": "video"
+        "img": "http://ww2.hdnux.com/photos/66/76/25/14411077/3/rawImage.jpg",
+        "coords": "35.37113503988792, -114.70825195312501",
+        "type": "photo"
     },
     {
         "id": 6,
-        "img": "wsrUhwzYgT0",
-        "coords": "29.462941931692189, -98.514994824080603",
-        "type": "video"
+        "img": "http://ww3.hdnux.com/photos/66/76/25/14411074/3/rawImage.jpg",
+        "coords": "35.070469136970004, -114.04907226562501",
+        "type": "photo"
     },
     {
         "id": 7,
-        "img": "EPGQpJtrAiI",
-        "coords": "29.425313697041769, -98.452158773733302",
-        "type": "video"
+        "img": "http://ww3.hdnux.com/photos/66/76/25/14411078/3/rawImage.jpg",
+        "coords": "35.451720953414515, -112.05505371093751",
+        "type": "photo"
     },
     {
         "id": 8,
-        "img": "-HTK7lRew7k",
-        "coords": "29.42676087373982, -98.509044538620614",
-        "type": "video"
+        "img": "http://ww4.hdnux.com/photos/66/76/25/14411083/3/rawImage.jpg",
+        "coords": "36.057981063965286, -111.9122314453125",
+        "type": "photo"
+    },
+    {
+        "id": 9,
+        "img": "http://ww3.hdnux.com/photos/66/76/25/14411086/3/rawImage.jpg",
+        "coords": "36.61993664244771, -112.87353515625001",
+        "type": "photo"
+    },
+    {
+        "id": 10,
+        "img": "http://ww4.hdnux.com/photos/66/76/25/14411079/3/rawImage.jpg",
+        "coords": "36.976226801381415, -114.67529296875001",
+        "type": "photo"
+    },
+    {
+        "id": 11,
+        "img": "http://ww3.hdnux.com/photos/66/76/25/14411082/3/rawImage.jpg",
+        "coords": "36.95867114827461, -114.34020996093751",
+        "type": "photo"
+    },
+    {
+        "id": 12,
+        "img": "http://ww2.hdnux.com/photos/66/76/25/14411081/3/rawImage.jpg",
+        "coords": "36.945501751700654, -114.00512695312501",
+        "type": "photo"
     }
 ]
