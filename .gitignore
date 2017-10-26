@@ -7,7 +7,7 @@
 /coverage
 
 # pano photos
-# /src/panos/*
+/src/panos/*
 
 # production
 /build
