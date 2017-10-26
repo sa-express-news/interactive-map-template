@@ -5,12 +5,12 @@ import _ from 'lodash';
 
 // types
 import type { MarkerProps } from '../Map';
-import type { Page } from '../Map';
+import type { Page }        from '../Map';
 
 // components
-import Marker from '../Marker';
-import Modal from '../Modal';
-import Instructions from '../Instructions';
+import Marker           from '../Marker';
+import ModalContainer   from '../ModalContainer';
+import Instructions     from '../Instructions';
 
 type Props = {
     map: ?Object,
@@ -35,7 +35,7 @@ export default (props: Props) => props.map ? (
 				getNextPage={props.getNextPage}
         	/>
         ))}
-        <Modal
+        <ModalContainer
         	isOpen={props.modalIsOpen}
         	open={props.openModal}
         	close={props.closeModal}
