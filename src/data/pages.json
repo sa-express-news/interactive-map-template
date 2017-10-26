@@ -8,31 +8,31 @@
     },
     {
         "id": 1,
-        "media": "hassel.jpeg",
-        "title": "Halsell Welcome Building",
-        "copy": "The Halsell Welcome Building, along with the new Gift Shop, creates the dramatic new entrance to the San Antonio Botanical Garden, and contains the educational and volunteer offices.",
-        "type": "pano"
+        "media": "https://www.youtube.com/embed/as5YiunLSRA?wmode=opaque",
+        "title": "Spirit of a Leader",
+        "copy": "\"Spirit of a Leader\"— a photo-turned-mural of Martin Luther King Jr.'s speech \"I've Been to the Mountaintop\" — was completed in 2013. \"Spirit of a Leader\" is featured at the beginning of San Antonio's annual Martin Luther King's march every January. Artist: David Blancas. Location: 3518 Martin Luther King Dr.",
+        "type": "video"
     },
     {
         "id": 2,
-        "media": "mays.jpeg",
-        "title": "Mays Family Display Garden",
-        "copy": "The Mays Family Display Garden, featuring long-blooming plants with a hot color scheme and a cool cascading water feature, is located on a wide promenade that leads to the new Family Adventure Garden, opening in Spring, or over to established Botanical Garden areas such as the Lucile Halsell Conservatory.",
-        "type": "pano"
+        "media": "https://www.youtube.com/embed/Nyf3O2tXC3M?wmode=opaque",
+        "title": "Fiesta",
+        "copy": "The \"Fiesta\" mural features local makeup artist Bianca Flores, who won Red Bull's competition showcasing how she celebrates Fiesta. \"Fiesta\" was completed in 2017 by the Los Otros duo. Artist: Nik Soupe and Shek Vega. Location: 2611 Broadway St.",
+        "type": "video"
     },
     {
         "id": 3,
-        "media": "center.jpeg",
-        "title": "The H-E-B Discovery Center",
-        "copy": "The H-E-B Discovery Center, which features educational facilities, has a wide breezeway connecting the Mays Family Display Garden with the Culinary Garden.",
-        "type": "pano"
+        "media": "https://www.youtube.com/embed/UCwayvqWlwg?wmode=opaque",
+        "title": "Beneath it All",
+        "copy": "On the side of the San Antonio Current builfing, a weekly publication, is the first large-scale project of Los Otros duo. Creating their signature look with bright colors and sophisticated black and white, \"Beneath it All\" was completed in 2014. Artist: Nik Soupe and Shek Vega. Location: 915 Dallas St.",
+        "type": "video"
     },
     {
         "id": 4,
-        "media": "near-chef-area.jpeg",
+        "media": "http://ww1.hdnux.com/photos/62/32/07/13214180/5/rawImage.jpg",
         "title": "The Chef's Amphitheater",
         "copy": "The circular amphitheater in the Culinary Garden is a place for tour and student groups to meet.",
-        "type": "pano"
+        "type": "photo"
     },
     {
         "id": 5,

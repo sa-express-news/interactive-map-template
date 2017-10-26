@@ -17,9 +17,7 @@ const getSVG = (svg: string, type: string) => {
 
 const getPulse = (isPulsing: boolean) => isPulsing ? '<div class="pulsing"></div>' : '';
 
-const getBgImgPath = (img: string, type: string) => type === 'video' ? `//img.youtube.com/vi/${img}/default.jpg` : img;
-
-const getBackgroundImg = (img: string, type: string) => `<div style="background-image: url('${getBgImgPath(img, type)}');"></div>​`;
+const getBackgroundImg = (img: string, type: string) => `<div style="background-image: url('${img}');"></div>​`;
 
 const getAttrs = (props: Props) => {
 	const html = getPulse(props.isPulsing) + getBackgroundImg(props.img, props.type) + getSVG('', props.type);

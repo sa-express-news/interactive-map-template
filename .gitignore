@@ -6,9 +6,6 @@
 # testing
 /coverage
 
-# pano photos
-/src/panos/*
-
 # production
 /build
 

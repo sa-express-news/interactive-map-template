@@ -24,13 +24,13 @@ This template can be used to build interactive map experiences featuring images,
 
  You'll need to create your marker icons for every piece of content. These should be `72px x 48px` images that you can upload to the WCM.
 
- Create a spreadsheet in google sheets and structure it like this example file. Notice that videos and photos feature hard urls and panos use just the filenames from the `panos` directory. Don't worry about the coordinates for now if you don't have them on hand, you can add those later.
+ Create a spreadsheet in google sheets and structure it like [this example file](https://docs.google.com/spreadsheets/d/1C9tsdPjaDmXJ8tTeBebY0nyv7BroeqzDsTDnKPYoHEk/edit?usp=sharing). Notice that videos and photos feature hard urls and panos use just the filenames from the `panos` directory. Don't worry about the coordinates for now if you don't have them on hand, you can add those later. The `type` column in the `pages` sheet is used to define the content type. Options include `pano`, `photo` and `video`. In the `markers` sheet, the `type` column is used to define the logo type. Options here include just `photo` and `video`.
 
  You're going to want to export your sheet data to JSON. In other SAEN, we've automated this process (and feel free to do that here too if you like), but for now, I suggest intalling [this Export JSON tool](http://blog.pamelafox.org/2013/06/exporting-google-spreadsheet-as-json.html). Using this tool, you can grab each sheet as JSON and copy and paste the data into `src/data/map.json` and `src/data/pages.json` respectively.
 
  ## Loading your map ##
 
- Head over to Mapbox and login to the SAEN account. If you've never used Mapbox, it is pretty intuitive. In the most basic use case, you just want to go to the Styles tab and create/choose a style. Edit it as you see fit and then publish it. Under `Share, develop & use`, go to `Develop with this style` and select `leaflet`. Copy the `Leaflet URL` and inside `src/components/Map/index.jsx` and configure the leafletConfigObj here:
+ [Head over to Mapbox](https://www.mapbox.com/studio/) and login to the SAEN account. If you've never used Mapbox, it is pretty intuitive. In the most basic use case, you just want to go to the Styles tab and create/choose a style. Edit it as you see fit and then publish it. Under `Share, develop & use`, go to `Develop with this style` and select `leaflet`. Copy the `Leaflet URL` and inside `src/components/Map/index.jsx` and configure the leafletConfigObj here:
 
  ```
  getLeafletConfigObj() {

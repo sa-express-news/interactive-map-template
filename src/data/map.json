@@ -9,19 +9,19 @@
         "id": 1,
         "img": "http://ww1.hdnux.com/photos/66/76/25/14411080/3/rawImage.jpg",
         "coords": "36.3328281042601, -113.63159179687501",
-        "type": "photo"
+        "type": "video"
     },
     {
         "id": 2,
         "img": "http://ww4.hdnux.com/photos/66/76/25/14411087/3/rawImage.jpg",
         "coords": "36.743286071170964, -113.01086425781251",
-        "type": "photo"
+        "type": "video"
     },
     {
         "id": 3,
         "img": "http://ww4.hdnux.com/photos/66/76/25/14411075/3/rawImage.jpg",
         "coords": "36.21768713915642, -113.04382324218751",
-        "type": "photo"
+        "type": "video"
     },
     {
         "id": 4,
